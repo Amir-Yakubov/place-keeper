@@ -1,14 +1,64 @@
 'use strict'
 
+function onInit() {
+    const userInfo = _loadUserPref()
+    if (userInfo) {
+        setUserPref(userInfo)
+        greetUser(userInfo)
+        changeBgColor(userInfo)
+        renderSavedSettings(userInfo)
+    }
+
+}
+
 function onSubmit(event) {
     event.preventDefault()
+    let mapLocationStr = $('.map-location').val()
+
     const userInfo = {
         name: $('.first-name').val(),
         bgColor: $('.bg-color').val(),
         txtColor: $('.text-color').val(),
-        mapLocation: $('.map-location').val()
+        zoomFactor: $('.zoom-factor').val(),
+        mapLocation: mapLocationStr.split(', ')
     }
-    console.dir(userInfo)
-    saveToStorage(STORAGE_KEY, userInfo)
+    setUserPref(userInfo)
+    _saveUserPref(userInfo)
+    window.location.reload(true)
 }
 
+function _saveUserPref(value) {
+    saveToStorage(STORAGE_KEY, value)
+}
+
+function _loadUserPref() {
+    return loadFromStorage(STORAGE_KEY)
+}
+
+function greetUser(userInfo) {
+    $('.username-text').text(userInfo.name)
+}
+
+function changeBgColor(userInfo) {
+    $("body").css({
+        "background-color": `${userInfo.bgColor}`,
+        "color": `${userInfo.txtColor}`
+    })
+    $(".field").css({
+        "background-color": `${userInfo.bgColor}`,
+    })
+}
+
+function renderSavedSettings(userInfo) {
+    $('.saved-settings').html(`<div class="saved-text-box"><p>Map Start Location: <a href="#">${userInfo.mapLocation}</a>
+    </p><p>Background-color: <a href="#">${userInfo.bgColor}</a></p>
+    <p>Text-color: <a href="#">${userInfo.txtColor}</a></p></div>
+    <p>Zoom Factor: <a href="#">${userInfo.zoomFactor}</a></p>
+    <button class="btn-clear btn btn-danger" onclick="onClearClick()">clear</button>`)
+    $('.saved-settings').show()
+}
+
+function onClearClick() {
+    localStorage.clear()
+    window.location.reload(true)
+}

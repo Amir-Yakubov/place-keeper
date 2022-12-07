@@ -10,12 +10,26 @@
     <title>Prefs</title>
 </head>
 
-<body>
+<body onload="onInit()">
+
+    <section class="header">
+        <h1 class="display-3">welcome</h1>
+        <div class="display-5 username-text"></div>
+        <nav class="link-section">
+            <a href="index.html">Home</a>
+            <a href="map.html">map</a>
+        </nav>
+    </section>
+
+    <section class="saved-settings">
+     
+    </section>
+
     <section class="form-container">
-        <form onsubmit="onSubmit(event)">
+        <form class="user-form" onsubmit="onSubmit(event)">
             <div class="form-floating mb-3">
-                <input type="txt" class="first-name form-control" id="full-name" name="firstName"
-                    placeholder="First Name:">
+                <input type="txt" class="field first-name form-control" id="full-name" name="firstName"
+                    style="color: black" placeholder="First Name:">
                 <label for="full-name">First Name:</label>
             </div>
             <div class="row">
@@ -34,20 +48,24 @@
                     value="16" required onchange="showRange(this.value)" /> <span id="sRange">16</span>
             </div>
 
-            <!-- NTH -->
             <div class="form-floating mb-3">
-                <input type="txt" class="map-location form-control" id="map-location" placeholder="Map Start Location">
-                <label for="map-location">Map Start Location</label>
+                <input type="txt" class="field map-location form-control" id="map-location"
+                    placeholder="Map Start Location">
+                <label for="map-location">Map Start Location:</label>
+                <div id="mapLocationHelp" class="form-text">location coordinates ex: 30, 32</div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-success">Save</button>
         </form>
     </section>
 
+    <!-- lib -->
     <script src="lib/jquery/jquery.min.js"></script>
     <script src="lib/popper/popper.min.js"></script>
     <script src="lib/jquery-easing/jquery.easing.min.js"></script>
     <script src="lib/bootstrap/bootstrap.bundel.js"></script>
+
+    <!-- mvc -->
     <script src="js/utilService.js"></script>
     <script src="js/storageService.js"></script>
     <script src="js/userService.js"></script>
