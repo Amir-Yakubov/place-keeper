@@ -4,7 +4,7 @@ function onInit() {
     const userInfo = loadUserPref()
     if (userInfo) {
         setUserPref(userInfo)
-        greetUser(userInfo)
+
         changeBgColor(userInfo)
         renderSavedSettings(userInfo)
     }
@@ -50,11 +50,13 @@ function changeBgColor(userInfo) {
 }
 
 function renderSavedSettings(userInfo) {
-    $('.saved-settings').html(`<div class="saved-text-box"><p>Map Start Location: <a href="#">${userInfo.mapLocation}</a>
+
+    $('.saved-settings').html(`<div class="display-5 username-text">${userInfo.name}</div>
+    <div class="saved-text-box"><p>Saved Location: <a href="#">${userInfo.mapLocation}</a>
     </p><p>Background-color: <a href="#">${userInfo.bgColor}</a></p>
     <p>Text-color: <a href="#">${userInfo.txtColor}</a></p></div>
-    <p>Zoom Factor: <a href="#">${userInfo.zoomFactor}</a></p>
-    <button class="btn-clear btn btn-danger" onclick="onClearClick()">clear</button>`)
+    <p class="inline">Zoom Factor: <a href="#">${userInfo.zoomFactor}</a></p>
+    <button class="btn-clear btn btn-danger" onclick="onClearClick()">Clear</button>`)
     $('.saved-settings').show()
 }
 
