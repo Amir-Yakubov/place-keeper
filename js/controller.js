@@ -1,7 +1,7 @@
 'use strict'
 
 function onInit() {
-    const userInfo = _loadUserPref()
+    const userInfo = loadUserPref()
     if (userInfo) {
         setUserPref(userInfo)
         greetUser(userInfo)
@@ -23,15 +23,15 @@ function onSubmit(event) {
         mapLocation: mapLocationStr.split(', ')
     }
     setUserPref(userInfo)
-    _saveUserPref(userInfo)
+    saveUserPref(userInfo)
     window.location.reload(true)
 }
 
-function _saveUserPref(value) {
+function saveUserPref(value) {
     saveToStorage(STORAGE_KEY, value)
 }
 
-function _loadUserPref() {
+function loadUserPref() {
     return loadFromStorage(STORAGE_KEY)
 }
 
