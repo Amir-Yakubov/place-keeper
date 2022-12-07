@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="lib/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Prefs</title>
+</head>
+
+<body>
+    <section class="form-container">
+        <form onsubmit="onSubmit(event)">
+            <div class="form-floating mb-3">
+                <input type="txt" class="first-name form-control" id="full-name" name="firstName"
+                    placeholder="First Name:">
+                <label for="full-name">First Name:</label>
+            </div>
+            <div class="row">
+                <div class="mb-3 col">
+                    <label for="bg-color" class="form-label">Background Color:</label>
+                    <input type="color" id="bg-color" class="bg-color form-control form-control" name="bgColor">
+                </div>
+                <div class="mb-3 col">
+                    <label for="txt-color" class="form-label">Text Color:</label>
+                    <input type="color" id="txt-color" class="text-color form-control form-control" name="txtColor">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="zoom-factor" class="form-label">Zoom Factor:</label>
+                <input type="range" id="zoom-factor" class="zoom-factor form-range" name="fullName" min="1" max="21"
+                    value="16" required onchange="showRange(this.value)" /> <span id="sRange">16</span>
+            </div>
+
+            <!-- NTH -->
+            <div class="form-floating mb-3">
+                <input type="txt" class="map-location form-control" id="map-location" placeholder="Map Start Location">
+                <label for="map-location">Map Start Location</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </section>
+
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/popper/popper.min.js"></script>
+    <script src="lib/jquery-easing/jquery.easing.min.js"></script>
+    <script src="lib/bootstrap/bootstrap.bundel.js"></script>
+    <script src="js/utilService.js"></script>
+    <script src="js/storageService.js"></script>
+    <script src="js/userService.js"></script>
+    <script src="js/placeService.js"></script>
+    <script src="js/controller.js"></script>
+</body>
+
+</html>
