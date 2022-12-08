@@ -64,3 +64,31 @@ function onClearClick() {
     localStorage.clear()
     window.location.reload(true)
 }
+
+function renderLocation() {
+    var strHtml = ''
+    const locations = getgLocations()
+    locations.forEach(location => {
+        const { id, lat, lng, name, date } = location
+        const dateStr = timeStampToString(date)
+
+        strHtml += `
+        <div class="saved-location" data-id="${id}">
+         <button class="delete-location btn btn-danger" onclick="onDelClick(this)">X</button>
+         <p class="card-title display-6">${name}</p>
+         <p class="date-string">Saved: ${dateStr}</p>
+        </div>`
+    })
+    $('.render-locations').html(strHtml)
+}
+
+function timeStampToString(date) {
+    const newDate = new Date(date)
+    let year = newDate.getFullYear()
+    let month = newDate.getMonth()
+    let day = newDate.getDay()
+    let hour = newDate.getHours()
+    let minutes = newDate.getMinutes()
+
+    return `${day}/${month}/${year} ${hour}:${minutes}`
+}

@@ -45,19 +45,23 @@ h1 {
 .main-container {
     display: flex;
     flex-direction: row;
-    background-color: rgba(142, 142, 142, 0.362);
+    background-color: rgba(207, 207, 207, 0.362);
     height: 70vh;
     padding: 6px;
     max-width: 950px;
-    margin: 10px auto;
+    margin: 5% auto;
     border-radius: 3%;
 }
 
 .list {
-    background-color: azure;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(246, 246, 246);
     height: 100%;
     width: 40%;
     border-radius: 3%;
+    flex-wrap: wrap;
 }
 
 .map {
@@ -69,4 +73,41 @@ h1 {
 
 .inline {
     display: inline;
+}
+
+.saved-location {
+    text-align: left;
+    display: block;
+    background-color: rgba(226, 226, 226, 0.442);
+    /* flex-basis: 20%; */
+    height: 90px;
+    margin: 3px;
+    margin-left: 7px;
+    border-radius: 3%;
+    width: 96%;
+}
+
+.saved-location:hover {
+    background-color: rgba(176, 198, 176, 0.294);
+    transition: 0.3s;
+}
+
+.delete-location {
+    float: right;
+    margin: 5px;
+}
+
+.saved-list-txt{
+    padding: 10px;
+}
+
+.card-title{
+    padding: 10px;
+    font-size: 28px;
+}
+
+.date-string{
+    font-size: 20px;
+    padding-left: 10px;
+    padding-bottom: 10px;
 }

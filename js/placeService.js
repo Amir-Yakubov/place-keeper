@@ -1,5 +1,6 @@
 // 'use strict'
 
+const gLocations = []
 window.initMap = initMap
 
 function initMap(lat, lng, zoom) {
@@ -18,33 +19,19 @@ function initMap(lat, lng, zoom) {
     const marker = new google.maps.Marker({
         position: { lat, lng },
         map,
-        title: "Click to zoom",
+        title: "Mark",
     })
 
-    map.addListener("center_changed", () => {
-        console.log('click on map')
-
-        // window.setTimeout(() => {
-        //     map.panTo(marker.getPosition());
-        // }, 3000)
-    })
-    marker.addListener("click", () => {
-        console.log('click on marker')
-        // map.setZoom(8)
-        // map.setCenter(marker.getPosition())
-    })
-    placeMark(map)
+    addEventOnclickMap(map)
 }
 
-function placeMark(map) {
+function addEventOnclickMap(map) {
 
     map.addListener("click", (e) => {
         const lat = e.latLng.lat()
         const lng = e.latLng.lng()
-
-        console.log('lat', lat)
-        console.log('lng', lng)
         creatLocation(lat, lng)
+        renderLocation()
     })
 }
 
@@ -77,8 +64,8 @@ function addCoord() {
 
 }
 
-function deleteCoord() {
-
+function onDelClick() {
+    console.log('delete')
 }
 
 function updateCoord() {
@@ -94,7 +81,13 @@ function creatLocation(lat, lng) {
         id: makeId(),
         lat,
         lng,
-        name: prompt('Title?')
+        name: prompt('Title?'),
+        date: Date.now()
     }
     console.log(location)
+    gLocations.push(location)
+}
+
+function getgLocations() {
+    return gLocations
 }
