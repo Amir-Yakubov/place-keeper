@@ -10,26 +10,32 @@
     <title>Place-keeper</title>
 </head>
 
-<body>
+<body onload="onInit()">
     <nav>
         <a href="user-prefs.html">Settings</a>
         <a href="map.html">map</a>
     </nav>
     
     <section class="user-greet">
-        <h1>Hello ___!</h1>
+        <h1 class="home-title display-1">Hello!</h1>
+        <section class="saved-settings">
+        </section>
     </section>
     <main></main>
 
+    <!-- lib -->
     <script src="lib/jquery/jquery.min.js"></script>
     <script src="lib/popper/popper.min.js"></script>
     <script src="lib/jquery-easing/jquery.easing.min.js"></script>
     <script src="lib/bootstrap/bootstrap.bundel.js"></script>
     <script src="js/utilService.js"></script>
     <script src="js/storageService.js"></script>
+
+    <!-- mvc -->
     <script src="js/userService.js"></script>
     <script src="js/placeService.js"></script>
-    <script src="js/controller.js"></script>
+    <script src="js/homeController.js"></script>
+    <script src="js/userController.js"></script>
 </body>
 
 </html>

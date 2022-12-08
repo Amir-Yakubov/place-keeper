@@ -12,28 +12,40 @@
 
 <body onload="getPosition()">
 
+    <nav class="link-section">
+        <a href="index.html">Home</a>
+        <a href="user-prefs.html">Settings</a>
+    </nav>
+
+    <section class="saved-settings">
+    </section>
+
     <section class="main-container">
         <section class="map">
 
         </section>
         <section class="list">
             <p class="display-5 saved-list-txt">Saved Locations</p>
-            <div class="render-locations"></div>
-            
-           
+            <div class="render-locations"><span class="no-location-text">Nothing to display yet! <br>choose location and save by name</span></div>
+
+
         </section>
 
     </section>
 
+    <!-- lib -->
     <script src="lib/jquery/jquery.min.js"></script>
     <script src="lib/popper/popper.min.js"></script>
     <script src="lib/jquery-easing/jquery.easing.min.js"></script>
     <script src="lib/bootstrap/bootstrap.bundel.js"></script>
     <script src="js/utilService.js"></script>
     <script src="js/storageService.js"></script>
+
+    <!-- mvc -->
     <script src="js/userService.js"></script>
     <script src="js/placeService.js"></script>
-    <script src="js/controller.js"></script>
+    <script src="js/mapController.js"></script>
+    <script src="js/userController.js"></script>
 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA2tt-7BI2fLpQ9DaVLiMSrFmhql3JHOg">
     </script>

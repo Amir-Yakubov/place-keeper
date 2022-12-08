@@ -10,3 +10,30 @@ function makeId(length = 4) {
     }
     return txt
 }
+
+function changeBgColor(userInfo) {
+    $("body").css({
+        "background-color": `${userInfo.bgColor}`,
+        "color": `${userInfo.txtColor}`
+    })
+
+}
+
+function changeColor(userInfo) {
+    $(".field").css({
+        "background-color": `${userInfo.bgColor}`,
+    })
+}
+
+function changeLocationsBgColor(userInfo) {
+    $("body").css({
+        "background-color": `${userInfo.bgColor}`,
+    })
+}
+
+function changeLocationsTxtColor() {
+    $(".saved-list-txt").css({
+        "color": `${black}`,
+    })
+}
+

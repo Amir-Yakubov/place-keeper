@@ -28,12 +28,12 @@ h1 {
 .saved-settings {
     display: flex;
     flex-direction: row;
-    height: 280px;
+    height: 250px;
     background-color: rgba(226, 226, 226, 0.442);
     margin: 20px auto;
     max-width: 510px;
     text-align: left;
-    padding: 30px;
+    padding: 12px 30px 30px 30px;
     border-radius: 3%;
     display: none;
 }
@@ -48,8 +48,8 @@ h1 {
     background-color: rgba(207, 207, 207, 0.362);
     height: 70vh;
     padding: 6px;
-    max-width: 950px;
-    margin: 5% auto;
+    width: 60vw;
+    margin: 20px auto;
     border-radius: 3%;
 }
 
@@ -78,7 +78,6 @@ h1 {
     text-align: left;
     display: block;
     background-color: rgba(226, 226, 226, 0.442);
-    /* flex-basis: 20%; */
     height: 90px;
     margin: 3px;
     margin-left: 7px;
@@ -87,8 +86,9 @@ h1 {
 }
 
 .saved-location:hover {
-    background-color: rgba(176, 198, 176, 0.294);
+    background-color: rgba(191, 186, 248, 0.294);
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .delete-location {
@@ -96,17 +96,28 @@ h1 {
     margin: 5px;
 }
 
-.saved-list-txt{
+.saved-list-txt {
     padding: 10px;
 }
 
-.card-title{
+.card-title {
     padding: 10px;
     font-size: 28px;
 }
 
-.date-string{
-    font-size: 20px;
+.date-string {
+    color: rgb(146, 146, 146);
+    font-size: 16px;
     padding-left: 10px;
     padding-bottom: 10px;
+}
+
+.no-location-text {
+    font-size: 16px;
+    padding: 10px;
+}
+
+.home-title{
+    font-size: 15vh;
+    line-height: 30vh;
 }

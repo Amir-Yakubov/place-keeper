@@ -18,7 +18,7 @@
 
     <section class="header">
         <h1 class="display-3">welcome</h1>
-       
+
     </section>
 
     <section class="saved-settings">
@@ -28,7 +28,7 @@
         <form class="user-form" onsubmit="onSubmit(event)">
             <div class="form-floating mb-3">
                 <input type="txt" class="field first-name form-control" id="full-name" name="firstName"
-                    style="color: black" placeholder="First Name:">
+                    style="color: black" placeholder="First Name:" required>
                 <label for="full-name">First Name:</label>
             </div>
             <div class="row">
@@ -50,9 +50,10 @@
 
             <div class="form-floating mb-3">
                 <input type="txt" class="field map-location form-control" id="map-location"
-                    placeholder="Map Start Location">
+                    placeholder="Map Start Location" required>
                 <label for="map-location">Map Start Location:</label>
-                <div id="mapLocationHelp" class="form-text">location coordinates ex: 30, 32</div>
+                <div id="mapLocationHelp" class="form-text">location coordinates ex: 31.6911,
+                    34.5766</div>
             </div>
 
             <button type="submit" class="btn btn-success">Save</button>
@@ -70,7 +71,7 @@
     <script src="js/storageService.js"></script>
     <script src="js/userService.js"></script>
     <script src="js/placeService.js"></script>
-    <script src="js/controller.js"></script>
+    <script src="js/userController.js"></script>
 </body>
 
 </html>
