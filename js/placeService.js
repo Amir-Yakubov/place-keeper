@@ -31,7 +31,7 @@ function addEventOnclickMap(map) {
         const lat = e.latLng.lat()
         const lng = e.latLng.lng()
         creatLocation(lat, lng)
-        renderLocation()
+        renderLocations()
     })
 }
 
@@ -60,12 +60,16 @@ function showLocation(location) {
     initMap(lat, lng, zoom)
 }
 
-function addCoord() {
-
+function deleteLocation(locationId) {
+    const locationIdx = gLocations.findIndex(location => locationId === location.id)
+    gLocations.splice(locationIdx, 1)
+    saveUserPref()
 }
 
-function onDelClick() {
-    console.log('delete')
+
+
+function addCoord() {
+
 }
 
 function updateCoord() {
@@ -90,4 +94,19 @@ function creatLocation(lat, lng) {
 
 function getgLocations() {
     return gLocations
+}
+
+function creatLocations() {
+    const locations = []
+    for (let i = 0; i < 3; i++) {
+        const location = {
+            id: makeId(),
+            lat: 31.674895235898184,
+            lng: 34.55861049318059,
+            name: 'Example',
+            date: 1670460334416
+        }
+        locations.push(location)
+    }
+    return locations
 }

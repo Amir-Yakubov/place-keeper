@@ -54,7 +54,6 @@ h1 {
 }
 
 .list {
-    overflow: scroll;
     display: flex;
     flex-direction: column;
     background-color: rgb(246, 246, 246);
@@ -84,7 +83,7 @@ h1 {
     margin: 3px;
     margin-left: 7px;
     border-radius: 3%;
-    width: 96%;
+    width: 97%;
 }
 
 .saved-location:hover {

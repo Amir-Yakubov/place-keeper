@@ -4,7 +4,6 @@ function onInit() {
     const userInfo = loadUserPref()
     if (userInfo) {
         setUserPref(userInfo)
-
         changeBgColor(userInfo)
         renderSavedSettings(userInfo)
     }
@@ -65,16 +64,18 @@ function onClearClick() {
     window.location.reload(true)
 }
 
-function renderLocation() {
+function renderLocations() {
+    // if (!locations) locations = creatLocations()
+    var locations = getgLocations()
+
     var strHtml = ''
-    const locations = getgLocations()
     locations.forEach(location => {
         const { id, lat, lng, name, date } = location
         const dateStr = timeStampToString(date)
 
         strHtml += `
         <div class="saved-location" data-id="${id}">
-         <button class="delete-location btn btn-danger" onclick="onDelClick(this)">X</button>
+         <button class="delete-location btn btn-danger" onclick="onDelLocation('${id}')">X</button>
          <p class="card-title display-6">${name}</p>
          <p class="date-string">Saved: ${dateStr}</p>
         </div>`
@@ -91,4 +92,9 @@ function timeStampToString(date) {
     let minutes = newDate.getMinutes()
 
     return `${day}/${month}/${year} ${hour}:${minutes}`
+}
+
+function onDelLocation(locationId) {
+    deleteLocation(locationId)
+    renderLocations()
 }
