@@ -98,3 +98,7 @@ function onDelLocation(locationId) {
     deleteLocation(locationId)
     renderLocations()
 }
+
+function onclickLocation(){
+    
+}

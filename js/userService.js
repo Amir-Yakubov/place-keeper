@@ -1,7 +1,7 @@
 'use strict'
 
-let gUserPref = null
 let STORAGE_USER_PREF = 'userPrefDB'
+let gUserPref = null
 
 function setUserPref(userOref) {
     gUserPref = userOref

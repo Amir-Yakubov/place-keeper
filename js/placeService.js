@@ -1,28 +1,58 @@
 'use strict'
 
-var STORAGE_USER_LOCATIONS = 'geust'
+var map
 const gLocations = []
+const gMarkers = []
 
-function addEventOnclickMap(map) {
-    map.addListener("click", (e) => {
-        const lat = e.latLng.lat()
-        const lng = e.latLng.lng()
-        creatLocation(lat, lng)
-        renderLocations()
-    })
+function creatLocation(lat, lng) {
+    const locName = prompt('Title?')
+    if (!locName) {
+        alert('not validated name')
+        return null
+    }
+    const userPref = loadUserPref()
+    const userName = `${userPref.name} locs`
+    const location = {
+        id: makeId(),
+        lat,
+        lng,
+        name: locName,
+        date: Date.now(),
+        userName
+    }
+
+    gLocations.push(location)
+    STORAGE_USER_LOCATIONS = location.userName
+    saveUserLocations(gLocations)
+    console.log(gLocations)
+    return location.name
 }
 
-function placeMarkerAndPanTo(latLng, map) {
-    new google.maps.Marker({
-        position: latLng,
-        map: map,
-    })
+function panToPosition(latLng, map) {
     map.panTo(latLng)
+    map.setCenter(latLng)
 }
 
 function showLocation(location) {
     const { lat, lng, zoom } = location
     initMap(lat, lng, zoom)
+}
+
+function placeMarker(lat, lng, map, locationName) {
+
+    const marker = new google.maps.Marker({
+        position: { lat, lng },
+        map,
+        title: locationName
+    })
+    gMarkers.push(marker)
+}
+
+function clearMarker(locationId) {
+    const location = getLocationById(locationId)
+    let currMarker = getMarkerByTitle(location.name)
+    currMarker.setMap(null)
+    const markers = getgMarkers()
 }
 
 function deleteLocation(locationId) {
@@ -31,29 +61,20 @@ function deleteLocation(locationId) {
     saveUserLocations(gLocations)
 }
 
-function creatLocation(lat, lng) {
-    const userPref = loadUserPref()
-    const userName = `${userPref.name} locs`
-    const location = {
-        id: makeId(),
-        lat,
-        lng,
-        name: prompt('Title?'),
-        date: Date.now(),
-        userName
-    }
-    console.log(location)
-    gLocations.push(location)
-    STORAGE_USER_LOCATIONS = location.userName
-    saveUserLocations(gLocations)
-    console.log(gLocations)
+function getLocationById(locationId) {
+    const location = gLocations.find(location => locationId === location.id)
+    return location
+}
+
+function getMarkerByTitle(markerTitle) {
+    const marker = gMarkers.find(marker => markerTitle === marker.getTitle())
+    return marker
 }
 
 function getgLocations() {
     return gLocations
 }
 
-function getLocationById(locationId) {
-    const location = gLocations.find(location => locationId === location.id)
-    return location
+function getgMarkers() {
+    return gMarkers
 }

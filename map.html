@@ -17,18 +17,20 @@
         <a href="user-prefs.html">Settings</a>
     </nav>
 
-    <section class="saved-settings">
-    </section>
+    <section class="saved-settings"></section>
 
+    <!-- map and saved locations -->
     <section class="main-container">
-        <section class="map">
 
-        </section>
+        <div class="my-map">
+        <img class="img-my-location" onclick="onClickMyPlace()"
+    style="position: relative; z-index: 1;" src="img/my-location.png">
+        <section class="map"></section>
+    </div>
+    
         <section class="list">
             <p class="display-5 saved-list-txt">Saved Locations</p>
-            <div class="render-locations"><span class="no-location-text">Nothing to display yet! <br>choose location and save by name</span></div>
-
-
+            <div class="render-locations"><span class="no-location-text"></div>
         </section>
 
     </section>

@@ -11,17 +11,29 @@
 </head>
 
 <body onload="onInit()">
+
     <nav>
         <a href="user-prefs.html">Settings</a>
         <a href="map.html">map</a>
     </nav>
-    
+
     <section class="user-greet">
         <h1 class="home-title display-1">Hello!</h1>
-        <section class="saved-settings">
-        </section>
     </section>
-    <main></main>
+
+    <section class="main-console">
+
+        <section class="login-wrap">
+            <section class="login-container">
+                <p class="display-5">enter new settings</p>
+                <a class="btn btn-success" href="user-prefs.html">login</a>
+            </section>
+            <section class="saved-settings"></section>
+        </section>
+        <a class="cover-img" href="map.html">
+            <img class="img-map" src="img/map.jpg">
+        </a>
+    </section>
 
     <!-- lib -->
     <script src="lib/jquery/jquery.min.js"></script>
@@ -32,10 +44,10 @@
     <script src="js/storageService.js"></script>
 
     <!-- mvc -->
-    <script src="js/userService.js"></script>
-    <script src="js/placeService.js"></script>
     <script src="js/homeController.js"></script>
     <script src="js/userController.js"></script>
+    <script src="js/userService.js"></script>
+    <script src="js/placeService.js"></script>
 </body>
 
 </html>

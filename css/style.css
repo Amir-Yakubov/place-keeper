@@ -8,13 +8,14 @@ h1 {
 }
 
 .form-container {
-    background-color: rgba(226, 226, 226, 0.442);
+    background-color: rgba(239, 239, 239, 0.232);
     padding: 30px;
     max-width: 510px;
     margin: 10px auto;
     display: flex;
     flex-direction: column;
     border-radius: 3%;
+    box-shadow: -8px 7px 20px 0px #8f8f8f8c;
 }
 
 .btn-success {
@@ -29,13 +30,14 @@ h1 {
     display: flex;
     flex-direction: row;
     height: 250px;
-    background-color: rgba(226, 226, 226, 0.442);
+    background-color: rgba(239, 239, 239, 0.232);
     margin: 20px auto;
     max-width: 510px;
     text-align: left;
     padding: 12px 30px 30px 30px;
     border-radius: 3%;
     display: none;
+    box-shadow: -8px 7px 20px 0px #8f8f8f8c;
 }
 
 .btn-clear {
@@ -46,11 +48,13 @@ h1 {
     display: flex;
     flex-direction: row;
     background-color: rgba(207, 207, 207, 0.362);
-    height: 70vh;
-    padding: 6px;
-    width: 60vw;
+    height: 60vh;
+    padding: 2px;
+    width: 65vw;
+    min-width: 515px;
     margin: 20px auto;
     border-radius: 3%;
+    box-shadow: -8px 7px 20px 0px #8f8f8f71;
 }
 
 .list {
@@ -58,16 +62,24 @@ h1 {
     flex-direction: column;
     background-color: rgb(246, 246, 246);
     height: 100%;
-    width: 40%;
+    min-width: 30%;
     border-radius: 3%;
     flex-wrap: wrap;
 }
 
 .map {
+    position: relative;
+    bottom: 8.3%;
     background-color: beige;
     height: 100%;
-    width: 60%;
-    border-radius: 3%;
+    width: 100%;
+    border-radius: 1%;
+}
+
+.my-map {
+    height: 100%;
+    width: 70%;
+    border-radius: 1%;
 }
 
 .inline {
@@ -78,11 +90,12 @@ h1 {
     text-align: left;
     display: block;
     background-color: rgba(226, 226, 226, 0.442);
-    height: 90px;
+    height: 10vh;
     margin: 3px;
     margin-left: 7px;
     border-radius: 3%;
-    width: 97%;
+    width: 96%;
+    box-shadow: -1px 6px 5px #9c9c9c0f;
 }
 
 .saved-location:hover {
@@ -97,17 +110,22 @@ h1 {
 }
 
 .saved-list-txt {
-    padding: 10px;
+    margin: 0;
+    display: block;
+    padding: 10px 10px 0 10px;
+    margin-bottom: -20px;
+    font-size: 1.5em;
+    height: 15%;
 }
 
 .card-title {
     padding: 10px;
-    font-size: 28px;
+    font-size: 1.5em;
 }
 
 .date-string {
     color: rgb(146, 146, 146);
-    font-size: 16px;
+    font-size: 0.8em;
     padding-left: 10px;
     padding-bottom: 10px;
 }
@@ -117,7 +135,60 @@ h1 {
     padding: 10px;
 }
 
-.home-title{
+.home-title {
     font-size: 15vh;
     line-height: 30vh;
+}
+
+.login-container {
+    height: 38%;
+    background-color: rgba(239, 239, 239, 0.232);
+    margin: 20px auto;
+    margin-top: 0;
+    max-width: 510px;
+    text-align: center;
+    padding: 30px;
+    border-radius: 3%;
+    box-shadow: -8px 7px 20px 0px #8f8f8f8c;
+}
+
+.login-container .btn {
+    font-size: 30px;
+}
+
+.text-color,
+.bg-color {
+    background-color: transparent;
+}
+
+.render-locations {
+    overflow: scroll;
+    height: 85%;
+}
+
+.img-my-location {
+    right: 47%;
+    top: 12%;
+    height: 5vh;
+    cursor: pointer;
+}
+
+.main-console {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.img-map {
+    height: 450px;
+    border-radius: 3%;
+    margin-left: 10px;
+    box-shadow: -8px 7px 20px 0px #8f8f8f8c;
+}
+
+.cover-img:hover {
+    height: 450px;
+    border-radius: 3%;
+    opacity: 0.7;
+    transition: .3s;
 }

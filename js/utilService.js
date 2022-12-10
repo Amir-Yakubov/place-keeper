@@ -37,3 +37,14 @@ function changeLocationsTxtColor() {
     })
 }
 
+function timeStampToString(date) {
+    const newDate = new Date(date)
+    let year = newDate.getFullYear()
+    let month = newDate.getMonth()
+    let day = newDate.getDay()
+    let hour = newDate.getHours()
+    let minutes = newDate.getMinutes()
+
+    return `${day}/${month}/${year} ${hour}:${minutes}`
+}
+
